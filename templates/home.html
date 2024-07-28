@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нумо!</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="/static/style.css"> -->
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo" onclick="window.location.href='/'">Нумо!</h1>
+        <div class="nav">
+            <!-- <div class="nav-icon create" onclick="create(this)">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+            </div> -->
+            <!-- <div class="nav-icon notifications" onclick="window.location.href='/notifications'">
+                <span class="material-symbols-outlined">
+                    notifications_active
+                </span>
+            </div> -->
+            <div class="nav-icon search" onclick="search(this)">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </div>
+            <div class="nav-icon" onclick="window.location.href='{{action}}'">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <h1 class="error">{{ error }}</h1>
+        {% if all_habbits | length == 0 %}
+            <div class="info">
+                <div class="no-habbits">
+                    <h1 class="no-habbits-title">Наразі немає доступних звичок</h1>
+                    <p class="no-habbits-text">Створіть власну або зачекайте, поки це зробить хтось інший</p>
+                </div>
+                <div class="buttons">
+                    <h3 class="btn">про нас</h3>
+                    <h3 class="btn" onclick="window.location.href='/contacts'">контакти</h3>
+                    <!-- <h3 class="btn b3">підтримка</h3> -->
+                    <h3 class="btn" onclick="window.location.href='https://send.monobank.ua/jar/9Bxqw89jkt'">підтримка проєкту</h3>
+                    <h3 class="btn" onclick="window.location.href='https://t.me/numoua'">повідомити про баг</h3>
+                    <h3 class="btn">відгук</h3>
+                    <h3 class="btn" onclick="window.location.href='https://github.com/nazarrudenok/numo'">open source</h3>
+                </div>
+            </div>
+        {% endif %}
+        <div class="home-habbits-cont">
+            {% for habbit in all_habbits %}
+            <div class="habbit hc">
+                <div class="habbit-user-data">
+                    <h1 class="habbit-username">@{{ habbit[1] }}</h1>
+                    <div class="city-cont">
+                        <span class="material-symbols-outlined city-icon">
+                            location_on
+                        </span>
+                        <h1 class="habbit-city">{{ habbit[5] }}</h1>
+                    </div>
+                </div>
+                <div class="habbit-data hd">
+                    <h1 class="habbit-title ht">{{ habbit[2] }}</h1>
+                    <p class="habbit-description hhd">{{ habbit[3] }}</p>
+                    <h1 class="habbit-date">{{ habbit[6].strftime('%H:%M | %d.%m.%Y') }}</h1>
+                </div>
+                {% if active_true == '' %}
+                    <div class="btn connect" onclick="window.location.href='/connect?id={{ habbit[7] }}&title={{ habbit[2] }}'">приєднатись</div>
+                {% else %}
+                    <span class="no-about na2">Ви не можете приєднатись до цієї зчички, оскільки у вас вже є активна звичка</span>
+                {% endif %}
+                <!-- <div class="habbit-btn">
+                    <span class="material-symbols-outlined"
+                        onclick="window.location.href='/detailed?title={{ habbit[2] }}'">
+                        arrow_forward
+                    </span>
+                </div> -->
+            </div>
+            {% endfor %}
+        </div>
+        <div class="nav-bottom-cont">
+            <div class="nav-icon" onclick="window.location.href='/notifications'">
+                <span class="material-symbols-outlined not">
+                    notifications_active
+                </span>
+            </div>
+            <div class="nav-icon" onclick="create(this)">
+                <span class="material-symbols-outlined not not-add">
+                    add
+                </span>
+            </div>
+            <div class="nav-icon" onclick="window.location.href='/history?page=main'">
+                <span class="material-symbols-outlined not">
+                    list_alt
+                </span>
+            </div>
+        </div>
+    </main>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

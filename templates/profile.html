@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нумо!</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo" onclick="window.location.href='/'">Нумо!</h1>
+        <div class="nav">
+            <div class="nav-icon" onclick="window.location.href='/settings'">
+                <span class="material-symbols-outlined">
+                    settings
+                </span>
+            </div>
+            <div class="nav-icon">
+                <span class="material-symbols-outlined" onclick="window.location.href='/log-out'">
+                    logout
+                </span>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="info">
+            <div class="data">
+                <h1 class="username"><span class="emoji">👋</span>,<br>@{{ username }}</h1>
+                <!-- <div class="main-data">
+                    <div class="photo">{{ photo }}</div>
+                </div> -->
+                <div class="about-cont">
+                    <h1 class="about-title">Про вас</h1>
+                    <p class="about-text" style="white-space: pre-wrap;">{{ about | safe }}</p>
+                </div>
+                <div class="about-cont">
+                    <h1 class="about-title">Нотатка</h1>
+                    <form action="/note" method="post">
+                        <div class="note-cont">
+                            <input type="text" placeholder="Напишіть, що думаєте" name="note" class="user-data note-inp" autocomplete="off" value="{{ note }}">
+                            <!-- <input type="submit" value="Зберегти" class="login-btn note-btn"> -->
+                            <button type="submit" class="note-btn">
+                                <span class="material-symbols-outlined">
+                                    check_circle
+                                </span>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+                <div class="buttons">
+                    <!-- <h3 class="btn">друзі</h3> -->
+                    <h3 class="btn" onclick="window.location.href='/history'">ваші звички</h3>
+                </div>
+            </div>
+            <div class="active-habbit-cont">
+                <h1 class="active-habbit-title">Активна звичка</h1>
+                <div class="active">
+                    {% if habbit == '' %}
+                        <span class="no-about">Ви ще не обрали звичку або ваш партнер видалив її</span>
+                    {% else %}
+                        <div class="active-habbit-users">
+                            <h1 class="active-habbit-text" style="white-space: pre-wrap;">{{ habbit|safe }}</h1>
+                            <div class="active-habbit-data">
+                                <span class="material-symbols-outlined mate">
+                                    group
+                                </span>
+                                <h1 class="habbit-mate">
+                                    {% if mates %}
+                                        {% if username == mates[0][1] %}
+                                            {{ '@' + mates[0][8] }}
+                                        {% else %}
+                                            {{ '@' + mates[0][1] }}
+                                        {% endif %}
+                                    {% endif %}
+                                </h1>
+                            </div>
+                        </div>
+                        <p class="habbit-description hhd2">{{ mates[0][3] }}</p>
+                    {% endif %}
+                        <!-- <div class="dots">
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                        <div class="dot"></div>
+                    </div> -->
+                </div>
+                {% if habbit %}
+                    <div class="btns">
+                        <h3 class="btn choose" onclick="window.location.href=''">+ день</h3>
+                        <!-- <h3 class="btn choose" onclick="window.location.href='/choose'">{{ btn }}</h3> -->
+                        <h3 class="btn choose" onclick="window.location.href='/send'">написати партнеру</h3>
+                        {% if mates[0][1] == username %}
+                            <h3 class="btn choose" onclick="window.location.href='/delete?title={{ habbit }}&partrer={{ mates[0][1] }}'">видалити звичку</h3>
+                        {% else %}
+                            <h3 class="btn choose" onclick="window.location.href='/leave?title={{ habbit }}&partrer={{ mates[0][1] }}'">покинути звичку</h3>
+                        {% endif %}
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </main>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

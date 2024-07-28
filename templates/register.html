@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нумо!</title>
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo" onclick="window.location.href='/'">Нумо!</h1>
+    </header>
+    <main class="main main-form">
+        <div class="info">
+            <h1 class="error">{{error}}</h1>
+            <h1 class="login-title">Реєстрація</h1>
+            <div class="login-cont">
+                <div class="form-cont">
+                    <form action="/reg" method="POST" class="form">
+                        <label for="login">Логін</label>
+                        <input type="text" placeholder="5-20 символів" name="login" class="user-data" autocomplete="off">
+                        <label for="password">Пароль</label>
+                        <input type="password" placeholder="8-20 символів" name="password" class="user-data">
+                        <label for="password2">Підтвердження пароля</label>
+                        <input type="password" placeholder="Введіть пароль знову" name="password2" class="user-data">
+                        <input type="submit" value="Зареєструватись" class="login-btn">
+                    </form>
+                    <p class="login-add"><span class="here" onclick="window.location.href='/login'">Вже зареєстровані?</span></p>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

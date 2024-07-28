@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нумо!</title>
+
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    <!-- <link rel="stylesheet" type="text/css" href="/static/style.css"> -->
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo" onclick="window.location.href='/'">Нумо!</h1>
+        <div class="nav">
+            <!-- <div class="nav-icon create" onclick="create(this)">
+                <span class="material-symbols-outlined">
+                    add
+                </span>
+            </div>
+            <div class="nav-icon search" onclick="search(this)">
+                <span class="material-symbols-outlined">
+                    search
+                </span>
+            </div> -->
+            <div class="nav-icon" onclick="window.location.href='{{action}}'">
+                <span class="material-symbols-outlined">
+                    person
+                </span>
+            </div>
+        </div>
+    </header>
+    <main class="main">
+        <div class="info">
+            <div class="haslo">
+                <div class="haslo-info">
+                    <h1 class="haslo-title">Мотивація...</h1>
+                    <p class="haslo-text">Так, це все.</p>
+                    <h3 class="what" onclick="window.location.href='/about'">детальніше</h3>
+                </div>
+            </div>
+            <div class="main-info">
+                <h1 class="title">
+                    Це все, що вам потрібно,<br>аби завести корисну ініціативу<br>у власне життя.<br>Все інше – наше завдання
+                </h1>
+                <div class="buttons">
+                    <h3 class="btn">про нас</h3>
+                    <h3 class="btn" onclick="window.location.href='/contacts'">контакти</h3>
+                    <!-- <h3 class="btn b3">підтримка</h3> -->
+                    <h3 class="btn" onclick="window.location.href='https://send.monobank.ua/jar/9Bxqw89jkt'">підтримка проєкту</h3>
+                    <h3 class="btn" onclick="window.location.href='https://t.me/numoua'">повідомити про баг</h3>
+                    <h3 class="btn">відгук</h3>
+                    <h3 class="btn" onclick="window.location.href='https://github.com/nazarrudenok/numo'">open source</h3>
+                </div>
+            </div>
+        </div>
+        <!-- <div class="coming-soon-cont">
+            <h1 class="coming-soon">Coming soon...</h1>
+        </div> -->
+    </main>
+    <script src="/static/js/script.js"></script>
+</body>
+</html>

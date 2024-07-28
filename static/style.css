@@ -1,0 +1,694 @@
+/* @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
+@font-face {
+    font-family: 'e-Ukraine-Head-regular';
+    src: url('/static/fonts/e-ukraine-head/e-UkraineHead-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'kyiv-r';
+    src: url('/static/fonts/kyivType/KyivTypeSans-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'kyiv-b';
+    src: url('/static/fonts/kyivType/KyivTypeSans-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+} */
+
+@font-face {
+    font-family: 'mariupol-r';
+    src: url('/static/fonts/mariupol/Mariupol-Regular.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'mariupol-b';
+    src: url('/static/fonts/mariupol/Mariupol-Bold.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'emoji';
+    src: url('/static/fonts/NotoColorEmoji.ttf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    /* background: #e2dfcc; */
+    background: #f7f3ea;
+    color: #252525;
+    font-family: "mariupol-r";
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 15px 35px 15px;
+    user-select: none;
+}
+
+main {
+    padding: 0 15px;
+}
+
+.logo {
+    font-size: 27.5px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 15px;
+}
+
+.material-symbols-outlined {
+    user-select: none;
+    font-size: 30px;
+    transition: all .25s;
+    font-variation-settings:
+    'wght' 500
+}
+
+.material-symbols-outlined:hover {
+    cursor: pointer;
+}
+
+.f2 {
+    color: #de0a26;
+}
+
+.logo {
+    position: relative;
+}
+
+.logo::before {
+    content: '';
+    bottom: -2px;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    height: 3px;
+    background: #252525;
+    transition: .25s;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.logo:hover::before {
+    width: 100%;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 75vh;
+}
+
+.haslo {
+    display: flex;
+    flex-direction: row;
+    /* margin-bottom: 20px; */
+}
+
+.haslo-title {
+    font-size: 50px;
+    font-family: 'mariupol-b';
+    color: #f2700d;
+    /* color: #252525; */
+}
+
+.haslo-text {
+    font-size: 31.25px;
+    margin-bottom: 7.5px;
+}
+
+.what {
+    font-size: 22.5px;
+    /* background: #c3b2d6; */
+    background: #252525;
+    color: #f7f3ea;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50px;
+    width: 50%;
+    padding: 3px 25px;
+    border: 2px solid #252525;
+    transition: all .25s;
+}
+
+.what:hover {
+    background: transparent;
+    color: #252525;
+    cursor: pointer;
+}
+
+.haslo-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.main-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* height: 60vh; */
+}
+
+.arrow-cont {
+    display: flex;
+    align-items: center;
+    height: 40vh;
+}
+
+.arrow {
+    width: 250px;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    gap: 5px;
+}
+
+.buttons::-webkit-scrollbar {
+    display: none;
+}
+
+.btn {
+    padding: 3px 25px;
+    background: transparent;
+    color: #252525;
+    /* margin: 0 7.5px 7.5px 0; */
+    border-radius: 100px;
+    font-size: 22.5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #252525;
+    transition: all .25s;
+}
+
+.btn:last-child {
+    margin-right: 0;
+}
+
+.title {
+    font-size: 31.25px;
+    margin-bottom: 15px;
+}
+
+.btn, .what {
+    user-select: none;
+}
+
+.btn:hover {
+    background: transparent;
+    background: #252525;
+    color: #f7f3ea;
+    cursor: pointer;
+}
+
+.login-title {
+    font-size: 50px;
+    font-family: 'mariupol-b';
+}
+
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    font-size: 20px;
+    font-weight: 600;
+    margin-bottom: 3.5px;
+}
+
+.user-data {
+    background: #e2dfcc;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 17.5px;
+    margin-bottom: 15px;
+}
+
+.login-btn {
+    background: #252525;
+    color: #f7f3ea;
+    border: none;
+    outline: none;
+    padding: 7.5px 20px;
+    border-radius: 50px;
+    font-size: 17.5px;
+    margin-bottom: 10px;
+    border: 2px solid #252525;
+    transition: all .25s;
+}
+
+.login-btn:hover {
+    cursor: pointer;
+    background: #f7f3ea;
+    color: #252525;
+}
+
+.here {
+    border-bottom: 2px solid #252525;
+    font-size: 17.5px;
+    float: right;
+    user-select: none;
+    transition: all .25s;
+}
+
+.here:hover {
+    cursor: pointer;
+    border-bottom: 2px solid #f7f3ea;
+}
+
+.search-title {
+    font-size: 50px;
+    font-family: 'mariupol-b';
+}
+
+.search-input {
+    background: #e2dfcc;
+    border: none;
+    outline: none;
+    padding: 10px 20px;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 15px;
+    font-family: 'mariupol-r';
+}
+
+.search-btn {
+    background: #252525;
+    color: #f7f3ea;
+    border: none;
+    outline: none;
+    padding: 7.5px 20px;
+    border-radius: 50px;
+    font-size: 17.5px;
+    margin-bottom: 10px;
+    border: 2px solid #252525;
+    transition: all .25s;
+}
+
+.search-btn:hover {
+    cursor: pointer;
+    background: #f7f3ea;
+    color: #252525;
+}
+
+.inps {
+    background: #e2dfcc;
+    border: none;
+    outline: none;
+    padding: 5px 10px;
+    border-radius: 10px;
+    font-size: 20px;
+    font-family: 'mariupol-r';
+}
+
+.filters-btn {
+    font-size: 31.25px;
+    text-decoration: underline;
+    color: #636363;
+    font-family: 'mariupol-r';
+}
+
+.username {
+    font-family: 'mariupol-b';
+    font-size: 35px;
+    margin-bottom: 10px;
+}
+
+.emoji {
+    font-family: 'emoji';
+}
+
+/* .habbits-title {
+    margin-bottom: 10px;
+} */
+
+/* .habbit {
+    background: #f7f3ea;
+    padding: 12.5px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+} */
+/* 
+.habbits-cont {
+    background: #e2dfcc;
+
+    padding: 15px;
+    border-radius: 10px;
+} */
+
+.about-cont {
+    border: 2px solid #e2dfcc;
+    padding: 15px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.about-title {
+    font-size: 30px;
+    margin-bottom: 7.5px;
+}
+
+.about-text {
+    font-size: 20px;
+}
+
+.no-about {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    color: #636363;
+    font-size: 20px;
+}
+
+.photo {
+    width: 75px;
+    height: 75px;
+    background: #e2dfcc;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    border-radius: 50%;
+    margin-right: 7.5px;
+}
+
+.main-data {
+    display: flex;
+    flex-direction: row;
+}
+
+.settings-title {
+    font-size: 50px;
+    margin-bottom: 20px;
+}
+
+.setting-title {
+    margin-bottom: 7.5px;
+}
+
+.submit {
+    float: right;
+}
+
+/* .active-habbit-cont {
+    border: 2px solid #e2dfcc;
+    background: #e2dfcc;
+    padding: 15px;
+    border-radius: 10px;
+} */
+
+.active-habbit-title {
+    font-size: 35px;
+    margin-bottom: 7.5px;
+}
+
+.history-cont {
+    display: flex;
+    flex-direction: column;
+    /* padding: 15px;
+    background: #e2dfcc; */
+
+    border-radius: 10px;
+}
+
+.habbit {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    border: 2px solid #e2dfcc;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.detailed-title {
+    font-size: 50px;
+}
+
+.detailed-text {
+    padding: 15px;
+    border: 2px solid #e2dfcc;
+    border-radius: 10px;
+    font-size: 20px;
+}
+
+.add-info {
+    display: flex;
+    justify-content: right;
+    font-size: 17.5px;
+}
+
+.choose {
+    margin: 0;
+    margin-top: 15px;
+    background: #252525;
+    color: #f7f3ea;
+}
+
+.choose:last-child {
+    background: #de0a26;
+    border: 2px solid #de0a26;
+}
+
+.choose:last-child:hover {
+    color: #de0a26;
+}
+
+.choose:hover {
+    background: transparent;
+    color: #252525;
+    cursor: pointer;
+}
+
+.active {
+    display: flex;
+    flex-direction: column;
+    background: #e2dfcc;
+    padding: 15px;
+    border-radius: 10px;
+}
+
+.dots {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 5px;
+}
+
+.dot {
+    width: 17.5px;
+    height: 17.5px;
+    background: green;
+    border-radius: 25%;
+}
+
+.active-habbit-text {
+    font-size: 25px;
+}
+
+.btns {
+    display: flex;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    overflow-x: auto;
+    white-space: nowrap;
+    scrollbar-width: none;
+    gap: 5px;
+}
+
+.btns::-webkit-scrollbar {
+    display: none;
+}
+
+.home-title {
+    font-size: 35px;
+}
+
+.habbit-username {
+    font-size: 20px;
+}
+
+.hc {
+    border: none;
+    background: #e2dfcc;
+    flex-direction: column;
+    align-items: normal;
+    margin-bottom: 20px;
+}
+
+.ht {
+    font-size: 25px;
+    margin-bottom: 5px;
+}
+
+.hd {
+    background: #f7f3ea;
+    padding: 10px;
+    border-radius: 10px;
+}
+
+.na2 {
+    margin-top: 15px;
+}
+
+.hhd {
+    font-size: 20px;
+    margin-bottom: 10px;
+    white-space: pre-wrap;
+}
+
+.hhd2 {
+    font-size: 20px;
+    margin-top: 10px;
+    white-space: pre-wrap;
+}
+
+.habbit-date {
+    font-size: 15px;
+    float: right;
+}
+
+.connect {
+    background: #252525;
+    color: #f7f3ea;
+    margin: 0;
+    margin-top: 15px;
+}
+
+.connect:hover {
+    background: transparent;
+    color: #252525;
+}
+
+.habbit-city {
+    font-size: 20px;
+    text-transform: lowercase;
+}
+
+.city-icon {
+    font-size: 25px;
+}
+
+.city-cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5px;
+}
+
+.habbit-user-data {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center; 
+    margin-bottom: 15px;
+}
+
+.active-habbit-data {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 2.5px;
+}
+
+.habbit-mate {
+    font-size: 20px;
+}
+
+.mate {
+    font-size: 25px;
+}
+
+.active-habbit-users {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.no-habbits-title {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.no-habbits-text {
+    font-size: 22.5px;
+}
+
+.nav-bottom-cont {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 10px;
+    background: #252525;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    /* border-radius: 15px 15px 0 0; */
+}
+
+.not {
+    font-size: 25px;
+    color: #f7f3ea;
+    padding: 7.5px;
+    cursor: pointer;
+}
+
+.not-add {
+    background: #636363;
+    border-radius: 50%;
+}
+
+.note-cont {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    margin-top: 10px;
+    gap: 10px; 
+}
+
+.note-inp {
+    width: 100%;
+    margin-bottom: 0;
+}
+
+.note-btn {
+    background: none;
+    outline: none;
+    border: none;
+    margin-bottom: 0;
+}

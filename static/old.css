@@ -1,0 +1,443 @@
+@font-face {
+    font-family: 'e-Ukraine-Head-regular';
+    src: url('/static/fonts/e-ukraine-head/e-UkraineHead-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'e-Ukraine-Head-bold';
+    src: url('/static/fonts/e-ukraine-head/e-UkraineHead-Bold.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'e-Ukraine-regular';
+    src: url('/static/fonts/e-ukraine/e-Ukraine-Regular.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'e-Ukraine-regular';
+    /* background: #131414;
+    color: #fafafa; */
+}
+
+.main {
+    display: flex;
+    flex-direction: column;
+    padding: 0 20px;
+}
+
+.header {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    font-family: 'e-Ukraine-Head-regular';
+    padding: 15px 20px;
+    font-size: 12.5px;
+    margin-bottom: 25px;
+    user-select: none;
+}
+
+.nav-item {
+    border: 2px solid #000000;
+    padding: 2.5px 15px;
+    color: #000000;
+    border-radius: 50px;
+    font-size: 20px;
+    transition: all .25s;
+}
+
+.nav-item:hover {
+    cursor: pointer;
+    background: #000000;
+    color: #ffffff;
+    /* background: #7c7bff;
+    border: 2px solid #7c7bff; */
+}
+
+.logo {
+    position: relative;
+}
+
+.logo::before {
+    content: '';
+    bottom: -5px;
+    left: 0;
+    position: absolute;
+    width: 0%;
+    height: 2.5px;
+    background: #000000;
+    transition: .25s;
+}
+
+.logo {
+    cursor: pointer;
+}
+
+.logo:hover::before {
+    width: 100%;
+}
+
+.haslo {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* background: linear-gradient(-45deg, #dee0f1, #deeef1, #ebf1de); */
+    background: linear-gradient(45deg, #85FFBD, #FFFB7D);
+    /* background: #f42f60; */
+    /* color: #000000; */
+
+    /* border: 2px solid #dee0f1; */
+    padding: 15px;
+    border-radius: 25px;
+    font-family: 'e-Ukraine-Head-regular';
+    /* box-shadow: 0 0 100px 0 #dee0f1; */
+    /* ebf1de */
+    transition: all .25s;
+    margin-bottom: 15px;
+}
+
+/* .haslo:hover {
+    margin-bottom: 50px;
+} */
+
+.haslo-title {
+    font-size: 32.5px;
+}
+
+.haslo-text {
+    font-size: 20.3125px;
+}
+
+.what {
+    font-family: 'e-Ukraine-Head-regular';
+    padding: 5px;
+    border-radius: 25px;
+    background: #000000;
+    color: #ffffff;
+    font-size: 19.53px;
+    display: flex;
+    justify-content: center;
+    margin-top: 7.5px;
+    border: 2px solid transparent;
+    transition: .25s;
+}
+
+.what:hover {
+    cursor: pointer;
+    border: 2px solid #000000;
+    background: transparent;
+    color: #000000;
+}
+
+.info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+.coming-soon-cont {
+    display: flex;
+    justify-content: center;
+}
+
+.coming-soon {
+    font-family: 'e-Ukraine-regular';
+    background: linear-gradient(45deg, #85FFBD, #FFFB7D);
+    padding: 3.5px 17.5px;
+    border-radius: 25px;
+    font-size: 20px;
+}
+
+.title {
+    font-family: 'e-Ukraine-Head-regular';
+    font-size: 25px;
+    /* margin-bottom: 15px; */
+    /* background: #7c7bff; */
+    /* padding: 10px; */
+    /* border-radius: 20px; */
+    display: flex;
+    flex-wrap: wrap;
+    /* width: 0%; */
+    animation: bg 1.5s forwards;
+    margin-bottom: 15px;
+}
+
+/* @keyframes bg {
+    from {
+        width: 0%;
+    }
+    to {
+        width: calc(100% - 20px);
+    }
+} */
+
+.text {
+    font-size: 16.625px;
+    margin-bottom: 20px;
+}
+
+.login-cont {
+    background: linear-gradient(45deg, #85FFBD, #FFFB7D);
+    width: 90%;
+    height: 65%;
+    padding: 20px;
+    border-radius: 25px;
+    box-shadow: 0 0 50px 0 #dee0f1;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login-title {
+    font-family: 'e-Ukraine-Head-regular';
+    font-size: 32.5px;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 5px;
+}
+
+.form-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+    width: 100%;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+/* label {
+    padding-left: 5px;
+} */
+
+.user-data {
+    border: none;
+    border-bottom: 2px solid #000000;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    font-family: 'e-Ukraine-Head-bold';
+}
+
+.user-data::placeholder {
+    font-family: 'e-Ukraine-Head-bold';
+    font-size: 15px;
+}
+
+label {
+    font-family: 'e-Ukraine-Head-regular';
+    /* margin-bottom: 5px; */
+}
+
+.login-btn {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid transparent;
+    padding: 5px;
+    font-family: 'e-Ukraine-Head-regular';
+    font-size: 19.53px;
+    border-radius: 25px;
+    /* box-shadow: 0 0 100px 0 #000000; */
+    margin-bottom: 10px;
+    transition: .25s;
+}
+
+.login-btn:hover {
+    background: transparent;
+    color: #000000;
+    cursor: pointer;
+    border: 2px solid #000000;
+}
+
+.here {
+    border-bottom: 2px solid #000000;
+    transition: .25s;
+    user-select: none ;
+}
+
+.here:hover {
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+}
+
+.main-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 80vh;
+}
+
+.hello-title {
+    font-family: 'e-Ukraine-Head-regular';
+}
+
+.nav-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #000000;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 50%;
+    /* border: 2px solid #000000; */
+}
+
+.nav-icon:hover {
+    cursor: pointer;
+}
+
+.nav-icon-fake {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: transparent;
+    width: 35px;
+    height: 35px;
+    padding: 5px;
+    border-radius: 100px;
+}
+
+.nav {
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+}
+
+.search-cont {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    /* align-items: center; */
+    height: 60vh;
+}
+
+.search-input {
+    border: none;
+    border-bottom: 2px solid #000000;
+    outline: none;
+    background: transparent;
+    padding: 5px;
+    margin-bottom: 15px;
+    font-size: 20px;
+    font-family: 'e-Ukraine-Head-bold';
+}
+
+.search-input::placeholder {
+    font-family: 'e-Ukraine-Head-bold';
+    font-size: 20px;
+}
+
+.search-btn {
+    background: #000000;
+    color: #ffffff;
+    border: 2px solid transparent;
+    padding: 5px;
+    font-family: 'e-Ukraine-Head-regular';
+    font-size: 19.53px;
+    border-radius: 25px;
+    /* box-shadow: 0 0 100px 0 #000000; */
+    margin-bottom: 10px;
+    transition: .25s;
+}
+
+.search-btn:hover {
+    background: transparent;
+    color: #000000;
+    cursor: pointer;
+    border: 2px solid #000000;
+}
+
+.buttons {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+}
+
+.btn {
+    font-family: 'e-Ukraine-Head-regular';
+    padding: 5px 20px;
+    background: #000000;
+    /* color: #f42f60; */
+    color: #FFFB7D;
+    margin: 0 7.5px 7.5px 0;
+    border-radius: 100px;
+}
+
+.search-title {
+    display: flex;
+    flex-direction: column;
+}
+
+.filters-btn {
+    color: #525252;
+    text-decoration: underline;
+}
+
+.filters-btn:hover {
+    cursor: pointer;
+}
+
+.filters {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.inps {
+    width: 45%;
+}
+
+.create {
+    /* background: linear-gradient(90deg, #85FFBD, #FFFB7D); */
+    transition: all .25s;
+}
+
+.checkbox {
+    display: flex;
+    flex-direction: row;
+}
+
+.checkbox-input {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    border: 2px solid #000000;
+    background: #FFFB7D;
+    margin-right: 5px;
+}
+
+.checkbox-input:checked {
+    background-color: #FFFB7D;
+    border-color: #FFFB7D;
+}
+
+.hello {
+    /* background: linear-gradient(45deg, #85FFBD, #FFFB7D); */
+    /* padding: 15px;
+    border-radius: 25px; */
+    margin-bottom: 10px;
+}
+
+.habbit {
+    background: linear-gradient(45deg, #85FFBD, #FFFB7D);
+    padding: 15px;
+    margin-top: 10px;
+    border-radius: 25px;
+}
