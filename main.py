@@ -11,8 +11,13 @@ import hashlib
 from datetime import datetime
 import random
 import string
+from twilio.rest import Client
+from dotenv import load_dotenv
+import os
 
 app = Flask(__name__)
+
+load_dotenv()
 
 @app.route('/')
 def index():
@@ -293,6 +298,43 @@ def note():
 
     return make_response(redirect(url_for('profile')))
 
+@app.route('/del', methods=['POST', 'GET'])
+def del_():
+    username=request.cookies.get('username')
+    id_ = request.args.get('id')
+
+    cursor.execute("DELETE FROM habbits WHERE username = %s AND id_ = %s", (username, id_))
+    conn.commit()
+
+    return make_response(redirect(url_for('history')))
+
+@app.route('/response', methods=['POST', 'GET'])
+def response():
+
+    return render_template('response.html')
+
+@app.route('/resp', methods=['POST', 'GET'])
+def resp():
+    username = request.cookies.get('username')
+    response_ = request.form.get('response')
+
+    cursor.execute("INSERT INTO responses (username, response) VALUES (%s, %s)", (username, response_,))
+    conn.commit()
+
+    client = Client(os.getenv('account_sid'), os.getenv('auth_token'))
+
+    message = client.messages.create(
+        body=f'{username}\n\n{response_}',
+        from_='+13256004952',
+        to='+380632480311'
+    )
+
+    return make_response(redirect(url_for('thanks')))
+
+@app.route('/thanks', methods=['POST', 'GET'])
+def thanks():
+    return render_template('thanks.html')
+
 @app.route('/log-out')
 def logOut():
     response = make_response(redirect(url_for('index')))
@@ -303,5 +345,5 @@ def logOut():
 
 if __name__ == '__main__':
     # app.run(host='0.0.0.0', port='8080')
-    app.run(debug=True, host= '192.168.1.249')
+    app.run(debug=True, host= '10.12.36.39')
     # app.run(debug=True, host= '192.168.10.236')

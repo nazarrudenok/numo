@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нумо!</title>
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo" onclick="window.location.href='/'">Нумо!</h1>
+        <div class="nav-icon-fake"></div>
+    </header>
+    <main class="main">
+        <div class="info">
+            <div class="response-info">
+                <h1 class="login-title">Дякуємо!</h1>
+                <p class="login-text">Ваш відгук вже розглядається і обов'язково врахується у наступному оновленні</p>
+            </div>
+            <div class="btn thanks-btn" onclick="window.location.href='/'">На головну</div>
+        </div>
+    </main>
+</body>
+</html>

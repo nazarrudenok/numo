@@ -21,6 +21,9 @@
             <h1 class="detailed-title">{{ habbit[2] }}</h1>
             <p class="detailed-text">{{ habbit[3] }}<br>{{ habbit[4] }}</p>
             <p class="add-info">{{ date.strftime('%H:%M | %d.%m.%Y') }}</p>
+            <span class="material-symbols-outlined delete" onclick="window.location.href='/del?id={{ habbit[7] }}'">
+                delete
+            </span>
         </div>
     </main>
 </body>

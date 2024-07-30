@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Нумо!</title>
+    
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <header class="header">
+        <h1 class="logo" onclick="window.location.href='/'">Нумо!</h1>
+        <div class="nav-icon-fake"></div>
+    </header>
+    <main class="main main-form">
+        <div class="info">
+            <div class="response-info">
+                <h1 class="login-title">Відгук</h1>
+                <p class="login-text">Для нас важлива ваша думка! Опишіть свої враження від проєкту. Що б ви хотіли бачити, чого не вистачає?</p>
+            </div>
+            <div class="login-cont">
+                <div class="form-cont">
+                    <form action="/resp" method="POST" class="form">
+                        <textarea class="search-input" name="response" rows="4" placeholder="Напишіть свої враження від проєкту"></textarea>
+                        
+                        <button type="submit" class="search-btn submit">Надіслати</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </main>
+</body>
+</html>

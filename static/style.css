@@ -128,7 +128,10 @@ main {
 .haslo-title {
     font-size: 50px;
     font-family: 'mariupol-b';
-    color: #f2700d;
+    background: #e2dfcc;
+    padding: 10px;
+    border-radius: 15px;
+    /* color: #f2700d; */
     /* color: #252525; */
 }
 
@@ -231,6 +234,11 @@ main {
 .login-title {
     font-size: 50px;
     font-family: 'mariupol-b';
+}
+
+.login-text {
+    font-size: 25px;
+    margin-top: 10px;
 }
 
 .form {
@@ -668,8 +676,15 @@ label {
 }
 
 .not-add {
-    background: #636363;
+    background: #e2dfcc;
+    color: #252525;
     border-radius: 50%;
+    border: 2px solid #e2dfcc;
+}
+
+.not-add:hover {
+    background: transparent;
+    color: #f7f3ea;
 }
 
 .note-cont {
@@ -691,4 +706,22 @@ label {
     outline: none;
     border: none;
     margin-bottom: 0;
+}
+
+.delete {
+    font-size: 35px;
+    color: #de0a26;
+    display: flex;
+    justify-content: right;
+}
+
+.thanks-btn {
+    background: #252525;
+    color: #f7f3ea;
+    margin-top: 10px;
+}
+
+.thanks-btn:hover {
+    background: transparent;
+    color: #252525;
 }
