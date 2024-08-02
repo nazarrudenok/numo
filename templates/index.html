@@ -7,22 +7,11 @@
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
     <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    <!-- <link rel="stylesheet" type="text/css" href="/static/style.css"> -->
 </head>
 <body>
     <header class="header">
         <h1 class="logo" onclick="window.location.href='/'">Нумо!</h1>
         <div class="nav">
-            <!-- <div class="nav-icon create" onclick="create(this)">
-                <span class="material-symbols-outlined">
-                    add
-                </span>
-            </div>
-            <div class="nav-icon search" onclick="search(this)">
-                <span class="material-symbols-outlined">
-                    search
-                </span>
-            </div> -->
             <div class="nav-icon" onclick="window.location.href='{{action}}'">
                 <span class="material-symbols-outlined">
                     person
@@ -32,30 +21,59 @@
     </header>
     <main class="main">
         <div class="info">
-            <div class="haslo">
-                <div class="haslo-info">
-                    <h1 class="haslo-title">Мотивація...</h1>
-                    <p class="haslo-text">Так, це все.</p>
-                    <h3 class="what" onclick="window.location.href='/about'">детальніше</h3>
+            <div class="container">
+                <div class="haslo">
+                    <div class="haslo-info">
+                        <h1 class="haslo-title">Мотивація...</h1>
+                        <p class="haslo-text">Так, це все.</p>
+                    </div>
+                </div>
+                <div class="main-info">
+                    <h2 class="title">
+                        Це все, що вам потрібно, аби завести корисну ініціативу у власне життя. Все інше – наше завдання
+                    </h2>
+                    <!-- <div class="buttons why">
+                        <h3 class="btn">чому ми?</h3>
+                    </div> -->
+                    <!-- <h3 class="what" onclick="window.location.href='/about'">початок</h3> -->
+                    <!-- <div class="buttonts-cont">
+                        <h3 class="buttons-title">Корисні посилання</h3>
+                        <div class="buttons">
+                            <h3 class="btn">про нас</h3>
+                            <h3 class="btn" onclick="window.location.href='/contacts'">контакти</h3>
+                            <h3 class="btn" onclick="window.location.href='https://send.monobank.ua/jar/9Bxqw89jkt'">підтримка проєкту</h3>
+                            <h3 class="btn" onclick="window.location.href='https://t.me/numoua'">повідомити про баг</h3>
+                            <h3 class="btn" onclick="window.location.href='/response'">відгук</h3>
+                            <h3 class="btn" onclick="window.location.href='https://github.com/nazarrudenok/numo'">open source</h3>
+                        </div>
+                    </div> -->
                 </div>
             </div>
-            <div class="main-info">
-                <h1 class="title">
-                    Це все, що вам потрібно,<br>аби завести корисну ініціативу<br>у власне життя.<br>Все інше – наше завдання
-                </h1>
-                <div class="buttons">
-                    <h3 class="btn">про нас</h3>
-                    <h3 class="btn" onclick="window.location.href='/contacts'">контакти</h3>
-                    <!-- <h3 class="btn b3">підтримка</h3> -->
-                    <h3 class="btn" onclick="window.location.href='https://send.monobank.ua/jar/9Bxqw89jkt'">підтримка проєкту</h3>
-                    <h3 class="btn" onclick="window.location.href='https://t.me/numoua'">повідомити про баг</h3>
-                    <h3 class="btn" onclick="window.location.href='/response'">відгук</h3>
-                    <h3 class="btn" onclick="window.location.href='https://github.com/nazarrudenok/numo'">open source</h3>
-                </div>
+            <div class="-cont">
+                <h2 class="-title">Місія «Нумо» -</h2>
+                <p class="-text">Створення спільноти, в якій українське суспільство може надавати натхнення та підтримку одне одному для досягнення особистих цілей</p>
             </div>
         </div>
-        <!-- <div class="coming-soon-cont">
-            <h1 class="coming-soon">Coming soon...</h1>
+        <div class="why" onclick="smoothScroll('#why')">
+            <h1 class="why-title">Чому ми?</h1>
+            <span class="material-symbols-outlined why-arrow">
+                keyboard_double_arrow_down
+            </span>
+        </div>
+        <div class="-cont --cont" id="why">
+            <h2 class="-title">
+                <span class="svg">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="75" height="75" fill="#898121" class="bi bi-quote" viewBox="0 0 16 16">
+                        <path d="M12 12a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1h-1.388q0-.527.062-1.054.093-.558.31-.992t.559-.683q.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 9 7.558V11a1 1 0 0 0 1 1zm-6 0a1 1 0 0 0 1-1V8.558a1 1 0 0 0-1-1H4.612q0-.527.062-1.054.094-.558.31-.992.217-.434.559-.683.34-.279.868-.279V3q-.868 0-1.52.372a3.3 3.3 0 0 0-1.085.992 4.9 4.9 0 0 0-.62 1.458A7.7 7.7 0 0 0 3 7.558V11a1 1 0 0 0 1 1z"/>
+                    </svg>
+                </span>
+                «Нумо» - це команда, яка перемагає разом
+            </h2>
+            <p class="-text">Ми віримо в силу кожної людини. Ми створили «Нумо» з переконанням, що разом можна створити щось дуже велике. Приєднуйтесь до нас і станьте частиною руху, який змінює Україну, адже зміна держави починається з кожного з нас</p>
+        </div>
+        <!-- <div class="-cont">
+            <h2 class="-title">Чому ми?</h2>
+            <p class="-text"></p>
         </div> -->
     </main>
     <script src="/static/js/script.js"></script>

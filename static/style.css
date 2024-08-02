@@ -1,23 +1,3 @@
-/* @import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c&display=swap');
-@font-face {
-    font-family: 'e-Ukraine-Head-regular';
-    src: url('/static/fonts/e-ukraine-head/e-UkraineHead-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'kyiv-r';
-    src: url('/static/fonts/kyivType/KyivTypeSans-Regular.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-}
-@font-face {
-    font-family: 'kyiv-b';
-    src: url('/static/fonts/kyivType/KyivTypeSans-Bold.otf') format('opentype');
-    font-weight: normal;
-    font-style: normal;
-} */
-
 @font-face {
     font-family: 'mariupol-r';
     src: url('/static/fonts/mariupol/Mariupol-Regular.ttf') format('opentype');
@@ -31,8 +11,8 @@
     font-style: normal;
 }
 @font-face {
-    font-family: 'emoji';
-    src: url('/static/fonts/NotoColorEmoji.ttf') format('opentype');
+    font-family: 'e-ukraine';
+    src: url('/static/fonts/e-UkraineHead-Bold.otf') format('opentype');
     font-weight: normal;
     font-style: normal;
 }
@@ -43,8 +23,8 @@
 }
 
 body {
-    /* background: #e2dfcc; */
     background: #f7f3ea;
+    /* background: #f4f1eb; */
     color: #252525;
     font-family: "mariupol-r";
 }
@@ -60,6 +40,11 @@ body {
 
 main {
     padding: 0 15px;
+}
+
+.error {
+    color: #de0a26;
+    font-size: 25px;
 }
 
 .logo {
@@ -116,28 +101,37 @@ main {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    height: 75vh;
+    height: 72.5vh;
+}
+
+.index-info {
+    height: 55vh;
 }
 
 .haslo {
     display: flex;
     flex-direction: row;
-    /* margin-bottom: 20px; */
+    /* background: #E7B10A;
+    padding: 15px;
+    border-radius: 15px; */
 }
 
 .haslo-title {
-    font-size: 50px;
-    font-family: 'mariupol-b';
-    background: #e2dfcc;
-    padding: 10px;
-    border-radius: 15px;
-    /* color: #f2700d; */
-    /* color: #252525; */
+    font-size: 45px;
+    font-family: 'e-ukraine';
+    color: #f2700d;
+    
+    
+    /* color: #E7B10A; */
+
+
+    /* color: #D80032; */
+    /* color: #F78CA2; */
 }
 
 .haslo-text {
-    font-size: 31.25px;
-    margin-bottom: 7.5px;
+    font-size: 30px;
+    margin-bottom: 25px;
 }
 
 .what {
@@ -179,8 +173,16 @@ main {
     height: 40vh;
 }
 
-.arrow {
-    width: 250px;
+.buttonts-cont {
+    display: flex;
+    flex-direction: column;
+}
+
+.buttons-title {
+    font-size: 25px;
+    font-family: 'e-ukraine';
+    color: #D80032;
+    margin-bottom: 5px;
 }
 
 .buttons {
@@ -198,7 +200,7 @@ main {
 }
 
 .btn {
-    padding: 3px 25px;
+    padding: 3.5px 25px;
     background: transparent;
     color: #252525;
     /* margin: 0 7.5px 7.5px 0; */
@@ -216,8 +218,8 @@ main {
 }
 
 .title {
-    font-size: 31.25px;
-    margin-bottom: 15px;
+    font-size: 32.5px;
+    margin-bottom: 5px;
 }
 
 .btn, .what {
@@ -253,10 +255,12 @@ label {
 }
 
 .user-data {
-    background: #e2dfcc;
-    border: none;
+    /* background: #e2dfcc; */
+    background: transparent;
+    border: 2px solid #898121;
+    /* border: none; */
     outline: none;
-    padding: 10px 20px;
+    padding: 7.5px 20px;
     border-radius: 10px;
     font-size: 17.5px;
     margin-bottom: 15px;
@@ -267,7 +271,7 @@ label {
     color: #f7f3ea;
     border: none;
     outline: none;
-    padding: 7.5px 20px;
+    padding: 3.5px 20px;
     border-radius: 50px;
     font-size: 17.5px;
     margin-bottom: 10px;
@@ -300,8 +304,8 @@ label {
 }
 
 .search-input {
-    background: #e2dfcc;
-    border: none;
+    background: transparent;
+    border: 2px solid #898121;
     outline: none;
     padding: 10px 20px;
     border-radius: 10px;
@@ -315,7 +319,7 @@ label {
     color: #f7f3ea;
     border: none;
     outline: none;
-    padding: 7.5px 20px;
+    padding: 3.5px 20px;
     border-radius: 50px;
     font-size: 17.5px;
     margin-bottom: 10px;
@@ -330,13 +334,14 @@ label {
 }
 
 .inps {
-    background: #e2dfcc;
-    border: none;
+    background: transparent;
+    border: 2px solid #898121;
     outline: none;
     padding: 5px 10px;
     border-radius: 10px;
     font-size: 20px;
     font-family: 'mariupol-r';
+    color: #636363;
 }
 
 .filters-btn {
@@ -348,8 +353,7 @@ label {
 
 .username {
     font-family: 'mariupol-b';
-    font-size: 35px;
-    margin-bottom: 10px;
+    font-size: 25px;
 }
 
 .emoji {
@@ -375,10 +379,10 @@ label {
 } */
 
 .about-cont {
-    border: 2px solid #e2dfcc;
+    border: 2px solid #898121;
     padding: 15px;
-    border-radius: 10px;
-    margin-bottom: 10px;
+    border-radius: 15px;
+    margin: 15px 0;
 }
 
 .about-title {
@@ -398,43 +402,6 @@ label {
     font-size: 20px;
 }
 
-.photo {
-    width: 75px;
-    height: 75px;
-    background: #e2dfcc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 40px;
-    border-radius: 50%;
-    margin-right: 7.5px;
-}
-
-.main-data {
-    display: flex;
-    flex-direction: row;
-}
-
-.settings-title {
-    font-size: 50px;
-    margin-bottom: 20px;
-}
-
-.setting-title {
-    margin-bottom: 7.5px;
-}
-
-.submit {
-    float: right;
-}
-
-/* .active-habbit-cont {
-    border: 2px solid #e2dfcc;
-    background: #e2dfcc;
-    padding: 15px;
-    border-radius: 10px;
-} */
-
 .active-habbit-title {
     font-size: 35px;
     margin-bottom: 7.5px;
@@ -443,9 +410,6 @@ label {
 .history-cont {
     display: flex;
     flex-direction: column;
-    /* padding: 15px;
-    background: #e2dfcc; */
-
     border-radius: 10px;
 }
 
@@ -455,7 +419,7 @@ label {
     align-items: center;
     justify-content: space-between;
     padding: 15px;
-    border: 2px solid #e2dfcc;
+    border: 2px solid #898121;
     border-radius: 10px;
     margin-bottom: 10px;
 }
@@ -466,7 +430,7 @@ label {
 
 .detailed-text {
     padding: 15px;
-    border: 2px solid #e2dfcc;
+    border: 2px solid #898121;
     border-radius: 10px;
     font-size: 20px;
 }
@@ -482,6 +446,12 @@ label {
     margin-top: 15px;
     background: #252525;
     color: #f7f3ea;
+}
+
+.choose:first-child {
+    border: 2px solid #E7B10A;
+    background: #E7B10A;
+    color: #252525;
 }
 
 .choose:last-child {
@@ -502,9 +472,11 @@ label {
 .active {
     display: flex;
     flex-direction: column;
-    background: #e2dfcc;
+    justify-content: space-between;
+    background: transparent;
+    border: 2px solid #E7B10A;
     padding: 15px;
-    border-radius: 10px;
+    border-radius: 15px;
 }
 
 .dots {
@@ -512,13 +484,13 @@ label {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 5px;
-    margin-top: 5px;
+    /* margin-top: 5px; */
 }
 
 .dot {
     width: 17.5px;
     height: 17.5px;
-    background: green;
+    background: #898121;
     border-radius: 25%;
 }
 
@@ -550,7 +522,7 @@ label {
 
 .hc {
     border: none;
-    background: #e2dfcc;
+    border: 2px solid #898121;
     flex-direction: column;
     align-items: normal;
     margin-bottom: 20px;
@@ -562,7 +534,7 @@ label {
 }
 
 .hd {
-    background: #f7f3ea;
+    background: #e2dfcc;
     padding: 10px;
     border-radius: 10px;
 }
@@ -579,7 +551,7 @@ label {
 
 .hhd2 {
     font-size: 20px;
-    margin-top: 10px;
+    margin-bottom: 10px;
     white-space: pre-wrap;
 }
 
@@ -644,6 +616,7 @@ label {
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 5px;
 }
 
 .no-habbits-title {
@@ -709,10 +682,11 @@ label {
 }
 
 .delete {
-    font-size: 35px;
+    font-size: 30px;
     color: #de0a26;
     display: flex;
     justify-content: right;
+    margin-top: 5px;
 }
 
 .thanks-btn {
@@ -724,4 +698,137 @@ label {
 .thanks-btn:hover {
     background: transparent;
     color: #252525;
+}
+
+.-cont {
+    border: 2px solid #898121;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.-title {
+    color: #898121;
+    font-size: 25px;
+    font-family: 'e-ukraine';
+    margin-bottom: 10px;
+}
+
+.-text {
+    font-size: 25px;
+}
+
+.why {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    user-select: none;
+    transition: all .25s;
+}
+
+.why:hover {
+    cursor: pointer;
+    color: #636363;
+}
+
+.why-arrow {
+    font-size: 35px;
+    margin-bottom: 20px;
+}
+
+.-cont:nth-child(3) > h2 {
+    color: #E7B10A;
+}
+
+.settings-title {
+    margin-bottom: 25px;
+}
+
+.setting-title {
+    margin-bottom: 5px;
+}
+
+.error_day {
+    text-align: center;
+    /* margin-top: 10px; */
+    color: #D80032;
+}
+
+.data {
+    margin-bottom: 50px;
+}
+
+.about-cont:nth-child(3) {
+    border: none;
+    padding: 0;
+}
+
+.main-data {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #898121;
+    padding: 15px;
+    border-radius: 15px;
+}
+
+.avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 85px;
+    height: 85px;
+    background: #898121;
+    color: #f7f3ea;
+    border-radius: 50%;
+    font-size: 35px;
+    font-family: 'e-ukraine';
+    margin-bottom: 10px;
+}
+
+.details {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    margin-top: 10px;
+    color: #636363;
+}
+
+.detail {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.details-active {
+    flex-direction: column;
+    gap: 7.5px;
+}
+
+.detail-active {
+    flex-direction: row;
+}
+
+.detail-value {
+    color: #E7B10A;
+    font-size: 25px;
+    margin-right: 5px;
+}
+
+.--cont {
+    border: none;
+    padding: 0;
+}
+
+.quote {
+    font-size: 50px;
+}
+
+.svg {
+    position: relative;
+    top: 20px;
+    z-index: -1;
+    opacity: 60%;
 }

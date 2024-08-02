@@ -8,7 +8,7 @@ from flask import (Flask,
                    session)
 from config import conn, cursor
 import hashlib
-from datetime import datetime
+from datetime import datetime, date
 import random
 import string
 from twilio.rest import Client
@@ -16,6 +16,8 @@ from dotenv import load_dotenv
 import os
 
 app = Flask(__name__)
+
+app.config['UPLOAD_FOLDER'] = 'photos/'
 
 load_dotenv()
 
@@ -97,7 +99,10 @@ def reg():
         else:
             md5 = hashlib.md5(password.encode()).hexdigest()
 
-            cursor.execute("INSERT INTO users (username, password) VALUES (%s, %s)", (username, md5,))
+            current_date = datetime.now()
+            date = current_date.strftime('%Y-%m-%d %H:%M:%S')
+
+            cursor.execute("INSERT INTO users (username, password, date) VALUES (%s, %s, %s)", (username, md5, date))
             conn.commit()
             resp = make_response(redirect(url_for('index')))
             resp.set_cookie('username', username, max_age=2592000)
@@ -114,6 +119,8 @@ def about():
 def profile():
     if request.cookies:
         username=request.cookies.get('username')
+        error_day = request.args.get('error_day')
+
         cursor.execute("SELECT active FROM users WHERE username = %s", (username,))
         activeBtn = cursor.fetchall()[0][0]
         
@@ -131,20 +138,38 @@ def profile():
 
         cursor.execute("SELECT * FROM habbits WHERE title = %s", (active_text))
         mates = cursor.fetchall()
-
-        photo = username[:1].lower()
+        goal = mates[0][9] if mates else 30
 
         cursor.execute("SELECT note FROM users WHERE username = %s", (username))
         note = cursor.fetchall()[0][0]
 
+        cursor.execute("SELECT * FROM users WHERE username = %s", (username))
+        user_data = cursor.fetchall()
+        amount = user_data[0][9]
+        conn_date = user_data[0][10].strftime('%d.%m.%y')
+        
+        cursor.execute("SELECT * FROM habbits WHERE username = %s", (username,))
+        user_habbits = cursor.fetchall()
+        habbits_len = len(user_habbits)
+
+        procent = (int(amount) / int(goal)) * 100
+        procent = round(procent, 1)
+
+        avatar = username[:1].upper()
+
         return render_template('profile.html', username=request.cookies.get('username'),
                                    about = '<span class="no-about">Ви ще не додали опис</span>' if about == '' else about,
-                                   photo=photo,
                                 #    habbit='<span class="no-about">Ви ще не вибрали поточну звичку</span>' if active_text == '' else active_text,
                                    habbit=active_text,
                                    btn='вибрати звичку' if activeBtn == '' else 'змінити звичку',
                                    mates=mates,
-                                   note=note)
+                                   note=note,
+                                   error_day=error_day if error_day != None else '',
+                                   amount=amount,
+                                   avatar=avatar,
+                                   habbits_len=habbits_len,
+                                   conn_date=conn_date,
+                                   procent=procent)
     else:
         return make_response(redirect(url_for('index')))
 
@@ -157,7 +182,7 @@ def newHabbit():
     username = request.cookies.get('username')
     title = request.form.get('title')
     description = request.form.get('description')
-    socialMedia = request.form.get('socialMedia')
+    goal = request.form.get('goal')
     city = request.form.get('city')
 
     current_date = datetime.now()
@@ -165,7 +190,7 @@ def newHabbit():
 
     id_ = ''.join(random.choices(string.ascii_letters + string.digits, k=5)).lower()
 
-    cursor.execute("INSERT INTO habbits (username, title, description, socialMedia, city, date, id_) VALUES (%s, %s, %s, %s, %s, %s, %s)", (username, title, description, socialMedia, city, date, id_))
+    cursor.execute("INSERT INTO habbits (username, title, description, city, date, id_, goal) VALUES (%s, %s, %s, %s, %s, %s, %s)", (username, title, description, city, date, id_, goal if goal != '' else 30))
     conn.commit()
 
     cursor.execute("SELECT active FROM users WHERE username = %s", (username,))
@@ -263,9 +288,15 @@ def delete():
     title = request.args.get('title')
     partner = request.args.get('partner')
 
-    cursor.execute("DELETE FROM habbits where title = %s", (title,))
+    # cursor.execute("DELETE FROM  habbits where title = %s", (title,))
     cursor.execute("UPDATE users SET active = '' WHERE username = %s", (username,))
     cursor.execute("UPDATE users SET active = '' WHERE username = %s", (partner,))
+    
+    cursor.execute("UPDATE users SET day = Null WHERE username = %s", (username,))
+    cursor.execute("UPDATE users SET amount = 0 WHERE username = %s", (username,))
+
+    cursor.execute("UPDATE users SET day = Null WHERE username = %s", (partner,))
+    cursor.execute("UPDATE users SET amount = 0 WHERE username = %s", (partner,))
     conn.commit()
 
     return make_response(redirect(url_for('profile')))
@@ -278,6 +309,8 @@ def leave():
 
     cursor.execute("UPDATE users SET active = '' WHERE username = %s", (username,))
     cursor.execute("UPDATE habbits SET partner = '' WHERE title = %s", (title,))
+    cursor.execute("UPDATE users SET day = Null WHERE username = %s", (username))
+    cursor.execute("UPDATE users SET amount = '' WHERE username = %s", (0,))
     conn.commit()
 
     return make_response(redirect(url_for('profile')))
@@ -323,7 +356,7 @@ def resp():
 
     client = Client(os.getenv('account_sid'), os.getenv('auth_token'))
 
-    message = client.messages.create(
+    client.messages.create(
         body=f'{username}\n\n{response_}',
         from_='+13256004952',
         to='+380632480311'
@@ -335,6 +368,30 @@ def resp():
 def thanks():
     return render_template('thanks.html')
 
+@app.route('/day', methods=['POST', 'GET'])
+def day():
+    username = request.cookies.get('username')
+
+    cursor.execute("SELECT * FROM users WHERE username = %s", (username))
+    user_data = cursor.fetchall()
+
+    current_date = date.today()
+    day = current_date.day
+
+    amount = user_data[0][9]
+    
+    if user_data[0][8] != str(day):
+        cursor.execute("UPDATE users SET day = %s WHERE username = %s", (day, username))
+        cursor.execute("UPDATE users SET amount = %s WHERE username = %s", (int(amount + 1), username))
+        conn.commit()
+
+    if user_data[0][8] == str(day):
+        return make_response(redirect(url_for('profile', error_day='Сьогодні ви вже відзначили звичку')))
+    else:
+        print('+')
+
+    return make_response(redirect(url_for('profile')))
+
 @app.route('/log-out')
 def logOut():
     response = make_response(redirect(url_for('index')))
@@ -344,6 +401,6 @@ def logOut():
     return response
 
 if __name__ == '__main__':
-    # app.run(host='0.0.0.0', port='8080')
-    app.run(debug=True, host= '10.12.36.39')
-    # app.run(debug=True, host= '192.168.10.236')
+    app.run(host='0.0.0.0', port='8080')
+    # app.run(debug=True, host= '10.12.36.39')
+    # app.run(debug=True, host= '192.168.1.249')

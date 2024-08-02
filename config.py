@@ -9,7 +9,7 @@ conn = pymysql.connect(
     user = os.getenv('user'),
     password = os.getenv('password'),
     database = os.getenv('database'),
-    # port = int(os.getenv('port'))
+    port = int(os.getenv('port'))
 )
 
 cursor = conn.cursor()
